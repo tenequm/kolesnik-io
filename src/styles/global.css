@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-bg: #f7f3ec;
+  --color-bg-raised: #fbf8f3;
+  --color-ink: #1c1815;
+  --color-ink-muted: #6b6358;
+  --color-ink-faint: #a39a8e;
+  --color-accent: #b14a2c;
+  --color-accent-deep: #8e3a23;
+  --color-rule: #e6dfd3;
+
+  --font-display: var(--font-display), Georgia, serif;
+  --font-body: var(--font-body), system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--color-accent-deep);
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+}
+
+.prose-body p {
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.prose-body h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-body ul,
+.prose-body ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+  background: var(--color-bg-raised);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+.prose-body pre {
+  background: var(--color-bg-raised);
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--color-rule);
+  margin-bottom: 1.5rem;
+}

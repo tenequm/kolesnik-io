@@ -1,0 +1,55 @@
+---
+import { Font } from 'astro:assets'
+import '../styles/global.css'
+
+interface Props {
+  title: string
+  description?: string
+}
+
+const {
+  title,
+  description = 'Production-grade Claude infrastructure for teams past prototype. Mykhaylo Kolesnik, senior infrastructure engineer.',
+} = Astro.props
+
+const canonical = new URL(Astro.url.pathname, Astro.site).toString()
+const year = new Date().getFullYear()
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <Font cssVariable="--font-display" preload />
+    <Font cssVariable="--font-body" preload />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="border-t border-rule mt-32 py-10">
+      <div class="max-w-3xl mx-auto px-6 text-sm text-ink-muted flex flex-wrap gap-x-6 gap-y-2 items-baseline justify-between">
+        <p class="leading-relaxed">
+          Mykhaylo Kolesnik. Sole trader, Portugal. NIF PT321777301.
+        </p>
+        <nav class="flex flex-wrap gap-x-5 gap-y-2">
+          <a href="/privacy">Privacy</a>
+          <a href="https://github.com/tenequm" rel="noopener noreferrer" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/tenequm" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+          <span class="text-ink-faint">© {year}</span>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

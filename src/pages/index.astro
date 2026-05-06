@@ -1,0 +1,253 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const calendly = 'https://calendly.com/tenequm/30min'
+
+const services = [
+  {
+    name: 'Audit',
+    price: '$12-15k',
+    duration: '2 weeks',
+    outcome:
+      'Diagnostic of an existing or planned Claude system. Output: written assessment, prioritized roadmap, specific risk callouts, recommended evals.',
+    fit: 'Good fit if you have shipped a Claude prototype and need to know what is brittle before scaling, or you are scoping a build and want a senior engineer to pressure-test the plan.',
+  },
+  {
+    name: 'Sprint',
+    price: '$18-22k',
+    duration: '3-4 weeks',
+    outcome:
+      'Build of a defined Claude-powered capability: agent, RAG system, evaluation harness, agentic workflow, internal tool. Production-ready, not POC.',
+    fit: 'Good fit if you have a scoped problem and need it shipped reliably, with the infrastructure to keep it stable.',
+  },
+  {
+    name: 'Stabilization retainer',
+    price: '$8-12k',
+    duration: 'monthly',
+    outcome:
+      'Ongoing senior oversight: prompt and agent tuning, evals, infrastructure ownership, on-call for AI-system issues.',
+    fit: 'Good fit if you shipped a Claude system and need a senior engineer on call who actually understands the production path.',
+  },
+]
+
+const work = [
+  {
+    title: 'x3000, Twitter content-filtering platform',
+    period: 'Shipped product',
+    bullets: [
+      'Production Claude-4 classification pipeline with multi-provider fallback (Claude primary, OpenAI / OpenRouter fallback)',
+      'pgvector retrieval with HNSW indexes; async BullMQ workers for high-throughput classification',
+      'Three Claude-backed agents: reply drafting, tweet generation, and account-reputation analysis',
+    ],
+    links: [{ href: 'https://x3k.io', label: 'x3k.io' }],
+  },
+  {
+    title: 'Meta Ads PPC agent, Telegram agentic operator',
+    period: 'Production deployment with industry partner',
+    bullets: [
+      'Production Claude Agent SDK with multi-tier model routing (Opus user-facing, Sonnet sub-tasks)',
+      'OneCLI credential vault with transparent injection at the proxy layer; agent code never handles tokens',
+      'Read-only Meta Graph API integration; scheduled monitoring plus on-demand Telegram interface',
+      'Partner reported significant ROAS improvement vs pre-agent baseline',
+    ],
+  },
+  {
+    title: 'claude-kb, open-source MCP server',
+    period: 'Ongoing',
+    bullets: [
+      'Knowledge base + MCP server over Claude Code conversation history',
+    ],
+    links: [
+      { href: 'https://github.com/tenequm/claude-kb', label: 'github.com/tenequm/claude-kb' },
+    ],
+  },
+  {
+    title: 'Solana mainnet smart contracts',
+    period: '3 programs deployed',
+    bullets: [
+      'Payment-splitting program (zero-copy architecture, 28K to 212K compute units for 1 to 20 recipients)',
+      'Deadline-validation program (stateless, enforces deadlines beyond blockhash expiry)',
+      'Agent-identity program (ERC-8004 compatible on Solana via Token-2022 + Solana Attestation Service)',
+    ],
+    links: [
+      {
+        href: 'https://solscan.io/account/SPL1T3rERcu6P6dyBiG7K8LUr21CssZqDAszwANzNMB',
+        label: 'Payment splitting on Solscan',
+      },
+      {
+        href: 'https://solscan.io/account/DEADaT1auZ8JjUMWUhhPWjQqFk9HSgHBkt5KaGMVnp1H',
+        label: 'Deadline validator on Solscan',
+      },
+      {
+        href: 'https://solscan.io/account/satiFVb9MDmfR4ZfRedyKPLGLCg3saQ7Wbxtx9AEeeF',
+        label: 'Agent identity on Solscan',
+      },
+    ],
+  },
+  {
+    title: 'Solo infrastructure engineer, Gasp / Mangata Finance',
+    period: 'Sep 2022 to present',
+    bullets: [
+      '$3M peak TVL, 22 months zero outages',
+      '25 GKE nodes, 100+ microservices',
+      'CI build 90 min to 10 min, 40% infra cost reduction',
+    ],
+    reference: 'Reference: Peter Kris, CEO, available on request.',
+  },
+  {
+    title: 'DevOps to CTO, Lavarage (Pine Protocol)',
+    period: 'Jun 2022 to Jun 2023',
+    bullets: [
+      'Promoted to CTO after 6 months',
+      'Launched DeFi protocol mainnet in 30 days from inception',
+      '$2.8M peak TVL. Solo to 3 engineers',
+    ],
+  },
+  {
+    title: 'Senior platform engineer, NinjaHoldings',
+    period: 'Aug 2021 to Jun 2022',
+    bullets: [
+      'US fintech. 30+ Python services migrated EC2 to EKS',
+      'Service deploy time 3 days to 2 hours',
+      'API p95 2.1s to 340ms. Supported 25 engineers across 5 product teams',
+    ],
+  },
+  {
+    title: 'Sole DevOps to SRE team lead, Takeoff Technologies',
+    period: 'Mar 2018 to Jul 2020',
+    bullets: [
+      'Stack: GCP, Terraform, Kubernetes',
+      '8 isolated client environments serving Walmart and Costco warehouse automation',
+      'Team 2 to 10 engineers. 99.95% uptime. Deploys 2 to 15 per week',
+    ],
+  },
+]
+---
+
+<BaseLayout title="Mykhaylo Kolesnik. Production-grade Claude infrastructure.">
+  <section class="max-w-3xl mx-auto px-6 pt-24 sm:pt-32 pb-20">
+    <p class="font-display text-ink-muted mb-10 text-base sm:text-lg">
+      Mykhaylo Kolesnik
+    </p>
+    <h1 class="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] tracking-tight mb-8">
+      Production-grade Claude infrastructure for teams past prototype.
+    </h1>
+    <p class="text-lg text-ink-muted leading-relaxed mb-10 max-w-2xl">
+      Nine years of senior infrastructure engineering. Four years building production blockchain
+      systems. Now applied to Claude-powered agents and integrations.
+    </p>
+    <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+      <a
+        href={calendly}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-accent hover:bg-accent-deep text-bg px-5 py-3 font-medium tracking-wide transition-colors"
+      >
+        Book an intro call
+      </a>
+      <span class="text-sm text-ink-muted">
+        Currently accepting one or two engagements.
+      </span>
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-6 py-20 border-t border-rule">
+    <h2 class="font-display text-2xl sm:text-3xl mb-8">What I do</h2>
+    <p class="text-lg leading-relaxed text-ink">
+      I help engineering teams take a Claude prototype to production and keep it reliable. That
+      means agent design, evals, retrieval, prompt infrastructure, observability, and the operating
+      discipline that keeps a system from breaking the third week after launch. I work as the
+      senior engineer in the room, not as a packaged service. Every engagement starts with looking
+      at what you have already shipped.
+    </p>
+  </section>
+
+  <section id="services" class="max-w-5xl mx-auto px-6 py-20 border-t border-rule">
+    <h2 class="font-display text-2xl sm:text-3xl mb-12 max-w-3xl">Services</h2>
+    <div class="grid gap-10 md:grid-cols-3">
+      {
+        services.map((s) => (
+          <article class="flex flex-col">
+            <h3 class="font-display text-2xl mb-3">{s.name}</h3>
+            <p class="text-sm text-accent mb-5 tracking-wide uppercase">
+              {s.price}
+              <span class="text-ink-faint"> / {s.duration}</span>
+            </p>
+            <p class="leading-relaxed mb-4 text-ink">{s.outcome}</p>
+            <p class="leading-relaxed text-sm text-ink-muted">{s.fit}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="work" class="max-w-5xl mx-auto px-6 py-20 border-t border-rule">
+    <h2 class="font-display text-2xl sm:text-3xl mb-12 max-w-3xl">Recent work</h2>
+    <div class="grid gap-12 md:grid-cols-2">
+      {
+        work.map((w) => (
+          <article class="flex flex-col">
+            <h3 class="font-display text-xl mb-2 leading-snug">{w.title}</h3>
+            <p class="text-sm text-ink-faint mb-5">{w.period}</p>
+            <ul class="space-y-2 mb-4">
+              {w.bullets.map((b) => (
+                <li class="text-ink leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-accent">
+                  {b}
+                </li>
+              ))}
+            </ul>
+            {w.links && (
+              <div class="space-y-1 mb-1">
+                {w.links.map((l) => (
+                  <p class="text-sm">
+                    <a href={l.href} target="_blank" rel="noopener noreferrer">
+                      {l.label}
+                    </a>
+                  </p>
+                ))}
+              </div>
+            )}
+            {w.reference && <p class="text-sm text-ink-muted italic">{w.reference}</p>}
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="about" class="max-w-3xl mx-auto px-6 py-20 border-t border-rule">
+    <h2 class="font-display text-2xl sm:text-3xl mb-8">About</h2>
+    <p class="text-lg leading-relaxed text-ink mb-6">
+      Mykhaylo Kolesnik. Nine years software engineering. Built infrastructure for warehouse
+      automation serving Walmart and Costco at Takeoff (8 isolated client environments). Migrated
+      30+ Python services from EC2 to EKS at NinjaHoldings, supporting 25 engineers across 5
+      product teams. Promoted DevOps to CTO at Lavarage and launched a DeFi protocol mainnet in 30
+      days from inception. Solo-maintained a $3M peak TVL DeFi protocol with zero outages over 22
+      months at Gasp. Based in Cascais, Portugal. Working primarily with North American teams.
+    </p>
+    <p class="leading-relaxed text-ink-muted">
+      References from current and prior engagements available on request.
+    </p>
+    <p class="leading-relaxed text-ink-muted mt-3">
+      I sign client-provided DPAs and can provide a baseline GDPR-aligned data-processing
+      agreement on request.
+    </p>
+  </section>
+
+  <section id="contact" class="max-w-3xl mx-auto px-6 py-20 border-t border-rule">
+    <h2 class="font-display text-2xl sm:text-3xl mb-8">Contact</h2>
+    <p class="text-lg leading-relaxed text-ink mb-8 max-w-xl">
+      The fastest path is a 30-minute intro call. If you prefer, email works too.
+    </p>
+    <div class="flex flex-wrap items-center gap-x-6 gap-y-3 mb-6">
+      <a
+        href={calendly}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-accent hover:bg-accent-deep text-bg px-5 py-3 font-medium tracking-wide transition-colors"
+      >
+        Book an intro call
+      </a>
+      <a href="mailto:misha@kolesnik.io" class="text-base">misha@kolesnik.io</a>
+    </div>
+  </section>
+</BaseLayout>
