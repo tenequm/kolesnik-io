@@ -4,11 +4,11 @@ Development guidance for this Astro site.
 
 ## Stack
 
-- Astro 6 (static output)
+- Astro 7 (static output)
 - Tailwind CSS v4 via `@tailwindcss/vite` (CSS-first config in `src/styles/global.css`, no `tailwind.config.js`)
 - Biome 2 for lint and format (TypeScript, JavaScript, JSON, CSS, and Astro files)
 - pnpm package manager
-- Node 22.12+
+- Node 26 (pinned in `.nvmrc`)
 
 ## Commands
 
