@@ -5,14 +5,26 @@ import '../styles/global.css'
 interface Props {
   title: string
   description?: string
+  type?: 'website' | 'article'
+  pubDate?: Date
+  updatedDate?: Date | undefined
+  ogImage?: string
 }
 
 const {
   title,
   description = 'Production-grade Claude infrastructure for teams past prototype. Mykhaylo Kolesnik, senior infrastructure engineer.',
+  type = 'website',
+  pubDate,
+  updatedDate,
+  ogImage = '/og.png',
 } = Astro.props
 
-const canonical = new URL(Astro.url.pathname, Astro.site).toString()
+// build.format 'file' puts ".html" in build-time pathnames; canonical must match the clean served URLs
+const cleanPath = Astro.url.pathname.replace(/index\.html$/, '').replace(/\.html$/, '')
+const canonical = new URL(cleanPath, Astro.site).toString()
+const ogImageUrl = new URL(ogImage, Astro.site).toString()
+const ogImageAlt = type === 'article' ? title : 'Mykhaylo Kolesnik. Production-grade Claude infrastructure.'
 const year = new Date().getFullYear()
 ---
 
@@ -28,8 +40,24 @@ const year = new Date().getFullYear()
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Mykhaylo Kolesnik" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    {
+      type === 'article' && pubDate && (
+        <meta property="article:published_time" content={pubDate.toISOString()} />
+      )
+    }
+    {
+      type === 'article' && updatedDate && (
+        <meta property="article:modified_time" content={updatedDate.toISOString()} />
+      )
+    }
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="alternate" type="application/rss+xml" title="Mykhaylo Kolesnik" href="/rss.xml" />
     <Font cssVariable="--font-display" preload />
     <Font cssVariable="--font-body" preload />

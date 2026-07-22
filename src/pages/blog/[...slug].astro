@@ -15,7 +15,14 @@ const { Content } = await render(post)
 const fmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
 ---
 
-<BaseLayout title={`${post.data.title}. Mykhaylo Kolesnik.`} description={post.data.description}>
+<BaseLayout
+  title={`${post.data.title}. Mykhaylo Kolesnik.`}
+  description={post.data.description}
+  type="article"
+  pubDate={post.data.pubDate}
+  updatedDate={post.data.updatedDate}
+  ogImage={`/og/${post.id}.png`}
+>
   <article class="max-w-2xl mx-auto px-6 pt-20 sm:pt-28 pb-20">
     <header class="mb-12">
       <p class="text-sm text-ink-faint mb-4">
