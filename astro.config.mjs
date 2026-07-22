@@ -22,7 +22,7 @@ export default defineConfig({
       name: 'Source Serif 4',
       cssVariable: '--font-display',
       weights: [400, 600],
-      styles: ['normal', 'italic'],
+      styles: ['normal'],
       subsets: ['latin'],
       fallbacks: ['Georgia', 'serif'],
     },

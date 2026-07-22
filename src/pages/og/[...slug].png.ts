@@ -34,7 +34,7 @@ export async function GET({ props }: APIContext<Props>) {
           backgroundColor: '#f7f3ec',
         },
         children: [
-          { type: 'div', props: { style: { height: 14, backgroundColor: '#b14a2c' } } },
+          { type: 'div', props: { style: { height: 14, backgroundColor: '#3d5a80' } } },
           {
             type: 'div',
             props: {
@@ -52,7 +52,7 @@ export async function GET({ props }: APIContext<Props>) {
                     style: {
                       fontFamily: 'IBM Plex Sans',
                       fontSize: 26,
-                      color: '#b14a2c',
+                      color: '#3d5a80',
                       marginBottom: 28,
                     },
                     children: fmt.format(post.data.pubDate),
@@ -104,7 +104,7 @@ export async function GET({ props }: APIContext<Props>) {
                   type: 'div',
                   props: { style: { color: '#1c1815' }, children: 'Mykhaylo Kolesnik' },
                 },
-                { type: 'div', props: { style: { color: '#b14a2c' }, children: 'kolesnik.io' } },
+                { type: 'div', props: { style: { color: '#3d5a80' }, children: 'kolesnik.io' } },
               ],
             },
           },
