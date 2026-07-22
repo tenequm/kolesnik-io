@@ -25,12 +25,22 @@ Development guidance for this Astro site.
 
 ```
 src/
-  layouts/BaseLayout.astro  HTML shell, font preloads, footer
+  assets/blog/              Images used by blog posts (optimized at build)
+  components/Callout.astro  MDX callout aside
+  content/blog/             Blog posts (.md/.mdx), frontmatter per content.config.ts
+  content.config.ts         Blog collection schema (glob loader + Zod)
+  layouts/BaseLayout.astro  HTML shell, header nav, font preloads, footer
   pages/
-    index.astro             Home (all sections inline)
+    index.astro             Home (all sections inline; latest 3 posts)
+    blog/index.astro        Post list
+    blog/[...slug].astro    Post pages
+    rss.xml.ts              RSS feed (published posts only)
     privacy.astro           Privacy policy
-  styles/global.css         Tailwind import + design tokens
+  styles/global.css         Tailwind import + design tokens + .prose-body
 ```
+
+Posts with `draft: true` render in dev (marked "Draft") but are excluded from
+production builds and the RSS feed.
 
 Sections on the home page are inline in `index.astro` rather than extracted into components. Extract to `src/components/` only when a section is reused across pages or `index.astro` becomes hard to navigate.
 

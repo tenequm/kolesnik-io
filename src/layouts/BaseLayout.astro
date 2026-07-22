@@ -30,10 +30,23 @@ const year = new Date().getFullYear()
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
+    <link rel="alternate" type="application/rss+xml" title="Mykhaylo Kolesnik" href="/rss.xml" />
     <Font cssVariable="--font-display" preload />
     <Font cssVariable="--font-body" preload />
   </head>
   <body class="min-h-screen flex flex-col">
+    <header class="border-b border-rule">
+      <div
+        class="max-w-3xl mx-auto px-6 py-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2"
+      >
+        <a href="/" class="font-display text-ink hover:text-accent">Mykhaylo Kolesnik</a>
+        <nav class="flex gap-x-5 text-sm">
+          <a href="/blog">Blog</a>
+          <a href="/#services">Services</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
     <main class="flex-1">
       <slot />
     </main>
@@ -44,6 +57,7 @@ const year = new Date().getFullYear()
           Mykhaylo Kolesnik. Sole trader, Portugal. NIF PT321777301.
         </p>
         <nav class="flex flex-wrap gap-x-5 gap-y-2">
+          <a href="/blog">Blog</a>
           <a href="/privacy">Privacy</a>
           <a href="https://github.com/tenequm" rel="noopener noreferrer" target="_blank">GitHub</a>
           <a href="https://linkedin.com/in/tenequm" rel="noopener noreferrer" target="_blank">LinkedIn</a>

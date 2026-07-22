@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+const posts = (
+  await getCollection('blog', ({ data }) => (import.meta.env.PROD ? !data.draft : true))
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+
+const fmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+---
+
+<BaseLayout
+  title="Blog. Mykhaylo Kolesnik."
+  description="Notes on production Claude systems, agents, and infrastructure."
+>
+  <section class="max-w-3xl mx-auto px-6 pt-20 sm:pt-28 pb-20">
+    <h1 class="font-display text-3xl sm:text-4xl mb-12">Blog</h1>
+    {posts.length === 0 && <p class="text-ink-muted">Nothing here yet.</p>}
+    <ul>
+      {
+        posts.map((post) => (
+          <li class="border-t border-rule">
+            <a
+              href={`/blog/${post.id}`}
+              class="group flex flex-wrap items-baseline gap-x-6 gap-y-1 py-5 text-ink hover:text-ink"
+            >
+              <time
+                datetime={post.data.pubDate.toISOString()}
+                class="text-sm text-ink-faint tabular-nums shrink-0 w-28"
+              >
+                {fmt.format(post.data.pubDate)}
+              </time>
+              <span class="font-display text-xl group-hover:text-accent transition-colors">
+                {post.data.title}
+                {post.data.draft && <span class="text-sm text-ink-faint font-body"> (draft)</span>}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
