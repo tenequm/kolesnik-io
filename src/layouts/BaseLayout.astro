@@ -25,7 +25,8 @@ const cleanPath = Astro.url.pathname.replace(/index\.html$/, '').replace(/\.html
 const canonical = new URL(cleanPath, Astro.site).toString()
 const ogImageUrl = new URL(ogImage, Astro.site).toString()
 const ogImageAlt = type === 'article' ? title : 'Mykhaylo Kolesnik. Production systems for the AI-agent era.'
-const onBlog = cleanPath === '/blog' || cleanPath.startsWith('/blog/')
+// Restore with the blog nav link:
+// const onBlog = cleanPath === '/blog' || cleanPath.startsWith('/blog/')
 const year = new Date().getFullYear()
 ---
 
@@ -76,6 +77,8 @@ const year = new Date().getFullYear()
       >
         <a href="/" class="font-display text-ink hover:text-accent">Mykhaylo Kolesnik</a>
         <nav class="flex gap-x-5 text-sm">
+          {
+            /* Blog nav hidden until there are published posts.
           <a
             href="/blog"
             aria-current={onBlog ? 'page' : undefined}
@@ -83,6 +86,8 @@ const year = new Date().getFullYear()
           >
             Blog
           </a>
+          */
+          }
           <a href="/#services">Services</a>
           <a href="/#contact">Contact</a>
         </nav>
@@ -98,7 +103,7 @@ const year = new Date().getFullYear()
           Mykhaylo Kolesnik. Sole trader, Portugal. NIF PT321777301.
         </p>
         <nav class="flex flex-wrap gap-x-5 gap-y-2">
-          <a href="/blog">Blog</a>
+          {/* <a href="/blog">Blog</a> hidden until there are published posts */}
           <a href="/privacy">Privacy</a>
           <a href="https://github.com/tenequm" rel="noopener noreferrer" target="_blank">GitHub</a>
           <a href="https://linkedin.com/in/tenequm" rel="noopener noreferrer" target="_blank">LinkedIn</a>
