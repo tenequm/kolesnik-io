@@ -24,7 +24,7 @@ const {
 const cleanPath = Astro.url.pathname.replace(/index\.html$/, '').replace(/\.html$/, '')
 const canonical = new URL(cleanPath, Astro.site).toString()
 const ogImageUrl = new URL(ogImage, Astro.site).toString()
-const ogImageAlt = type === 'article' ? title : 'Mykhaylo Kolesnik. Production systems for the AI-agent era.'
+const ogImageAlt = type === 'article' ? title : 'Mykhaylo Kolesnik. I fix the infrastructure nobody owns.'
 // Restore with the blog nav link:
 // const onBlog = cleanPath === '/blog' || cleanPath.startsWith('/blog/')
 const year = new Date().getFullYear()
