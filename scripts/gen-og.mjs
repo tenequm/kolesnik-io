@@ -6,12 +6,12 @@ import satori from 'satori'
 import sharp from 'sharp'
 
 const serif = readFileSync(join(process.cwd(), 'src/assets/fonts/source-serif-4-600.ttf'))
-const sans = readFileSync(join(process.cwd(), 'src/assets/fonts/ibm-plex-sans-400.ttf'))
+const mono = readFileSync(join(process.cwd(), 'src/assets/fonts/ibm-plex-mono-400.ttf'))
 
-const bg = '#f5efe6'
-const ink = '#1a1a1a'
-const inkMuted = '#5f5a52'
-const accent = '#3d5a80'
+const bg = '#131313'
+const ink = '#e6e3de'
+const inkMuted = '#a3a09a'
+const accent = '#8fb0d9'
 
 const svg = await satori(
   {
@@ -23,7 +23,7 @@ const svg = await satori(
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: bg,
-        borderTop: `16px solid ${accent}`,
+        borderTop: '2px solid #2a2a2a',
         padding: '96px',
         justifyContent: 'flex-end',
       },
@@ -38,15 +38,15 @@ const svg = await satori(
               lineHeight: 1.1,
               marginBottom: 28,
             },
-            children: 'I fix the infrastructure nobody owns.',
+            children: 'I build infrastructure for AI agents.',
           },
         },
         {
           type: 'div',
           props: {
             style: {
-              fontFamily: 'IBM Plex Sans',
-              fontSize: 32,
+              fontFamily: 'IBM Plex Mono',
+              fontSize: 26,
               color: inkMuted,
               lineHeight: 1.4,
               marginBottom: 48,
@@ -58,8 +58,8 @@ const svg = await satori(
           type: 'div',
           props: {
             style: {
-              fontFamily: 'Source Serif 4',
-              fontSize: 28,
+              fontFamily: 'IBM Plex Mono',
+              fontSize: 24,
               color: accent,
             },
             children: 'kolesnik.io',
@@ -73,7 +73,7 @@ const svg = await satori(
     height: 630,
     fonts: [
       { name: 'Source Serif 4', data: serif, weight: 600, style: 'normal' },
-      { name: 'IBM Plex Sans', data: sans, weight: 400, style: 'normal' },
+      { name: 'IBM Plex Mono', data: mono, weight: 400, style: 'normal' },
     ],
   },
 )

@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const calendly = 'https://calendly.com/tenequm/30min'
+---
+
+<BaseLayout
+  title="Contact. Mykhaylo Kolesnik."
+  description="Book an intro call or reach out by email, Telegram, or WhatsApp. Available now for new engagements."
+>
+  <section class="max-w-2xl w-full mx-auto px-6 py-10 flex-1 flex flex-col sm:justify-center">
+    <h1 class="font-mono text-sm font-normal text-ink-faint mb-8">contact</h1>
+    <p class="leading-relaxed text-ink mb-8">
+      Available now for new engagements. The fastest way to figure out whether I can help is a
+      short call.
+    </p>
+    <p class="font-mono text-sm flex flex-wrap items-baseline gap-x-6 gap-y-3 mb-10">
+      <a
+        href={calendly}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block border border-accent text-accent hover:text-accent-deep hover:border-accent-deep px-4 py-2 no-underline hover:no-underline transition-colors"
+      >
+        Book an intro call
+      </a>
+      <a href="mailto:misha@kolesnik.io">misha@kolesnik.io</a>
+      <a href="https://t.me/tenequm" target="_blank" rel="noopener noreferrer">Telegram</a>
+      <a href="https://wa.me/tenequm" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </p>
+    <p class="text-sm text-ink-muted leading-relaxed">
+      Based in Cascais, Portugal, working primarily with North American teams. References from
+      current and prior engagements available on request. I sign client-provided DPAs and can
+      provide a baseline GDPR-aligned data-processing agreement.
+    </p>
+  </section>
+</BaseLayout>

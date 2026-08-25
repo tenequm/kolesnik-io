@@ -6,7 +6,7 @@ interface Props {
 const { title = 'Note' } = Astro.props
 ---
 
-<aside class="border-l-2 border-accent bg-bg-raised px-5 py-4 my-8">
-  <p class="text-sm font-medium tracking-wide uppercase text-accent mb-1">{title}</p>
+<aside class="border-l-2 border-rule pl-5 py-1 my-8">
+  <p class="font-mono text-xs text-ink-faint mb-1">{title.toLowerCase()}</p>
   <div class="text-ink leading-relaxed"><slot /></div>
 </aside>

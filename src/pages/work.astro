@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const services = [
+  {
+    name: 'Diagnose and fix',
+    duration: '2-4 weeks',
+    outcome:
+      'Starts with a 1-2 week diagnostic: written assessment, prioritized risk register, a 90-day plan. Then I implement the highest-value fixes from it - cloud and AI spend, reliability, deploys - as a scoped second phase. You can stop after the diagnostic; most of the value is in the fixes.',
+    fit: 'Good fit if the system was built fast, the person who knew it best is gone or overloaded, and you want it examined and repaired by the same senior hands.',
+  },
+  {
+    name: 'Stabilization retainer',
+    duration: 'monthly',
+    outcome:
+      'Ongoing senior ownership of the production side: infrastructure, deploys, cost, agent and prompt tuning, evals, on-call for AI-system issues. Bounded monthly hours.',
+    fit: 'Good fit if you shipped an AI system and need a senior engineer on call who actually understands the production path.',
+  },
+]
+
+const roles = [
+  {
+    role: 'Solo infrastructure engineer',
+    org: 'Gasp / Mangata Finance',
+    period: 'Sep 2022 to 2026',
+    line: '$3M peak TVL, 22 months zero outages across 25 GKE nodes and 100+ microservices. Reference: Peter Kris, CEO, on request.',
+  },
+  {
+    role: 'DevOps to CTO',
+    org: 'Lavarage (Pine Protocol)',
+    period: 'Jun 2022 to Jun 2023',
+    line: 'Promoted to CTO after 6 months. Launched a DeFi protocol mainnet 30 days from inception; $2.8M peak TVL.',
+  },
+  {
+    role: 'Senior platform engineer',
+    org: 'NinjaHoldings',
+    period: 'Aug 2021 to Jun 2022',
+    line: 'US fintech. Migrated 30+ Python services EC2 to EKS; API p95 2.1s to 340ms.',
+  },
+  {
+    role: 'Sole DevOps to SRE team lead',
+    org: 'Takeoff Technologies',
+    period: 'Mar 2018 to Jul 2020',
+    line: 'Walmart and Costco warehouse automation across 8 isolated client environments; 99.95% uptime.',
+  },
+]
+---
+
+<BaseLayout
+  title="Work. Mykhaylo Kolesnik."
+  description="Diagnose-and-fix engagements and stabilization retainers for infrastructure and AI systems."
+>
+  <section class="max-w-2xl mx-auto px-6 pt-10 sm:pt-14 pb-4">
+    <h1 class="font-serif text-3xl sm:text-4xl leading-tight tracking-tight mb-5">
+      I fix the infrastructure nobody owns.
+    </h1>
+    <p class="leading-relaxed text-ink">
+      Startups build fast, with developers and now with AI. The result works until it doesn't:
+      deploys people fear, one engineer holding everything in their head, an AI feature whose bill
+      and behavior nobody can explain. Every engagement starts with what you have already shipped.
+    </p>
+  </section>
+
+  <section id="services" class="max-w-2xl mx-auto px-6 py-8">
+    <h2 class="font-mono text-sm font-normal text-ink-muted mb-6">services</h2>
+    <div class="space-y-10">
+      {
+        services.map((s) => (
+          <article>
+            <p class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-3">
+              <span class="font-serif text-xl font-semibold">{s.name}</span>
+              <span class="font-mono text-xs text-ink-muted tabular-nums">{s.duration}</span>
+            </p>
+            <p class="leading-relaxed mb-3 text-ink">{s.outcome}</p>
+            <p class="leading-relaxed text-sm text-ink-muted">{s.fit}</p>
+          </article>
+        ))
+      }
+    </div>
+    <div class="mt-8 border border-rule bg-bg-raised px-5 py-4">
+      <p class="text-ink leading-relaxed">
+        Every engagement is fixed price, scoped on a call: a defined end, named deliverables, and
+        you own everything I build - code, runbooks, and the knowledge to run it without me.
+      </p>
+      <p class="mt-4 text-ink-muted leading-relaxed">
+        Something else in mind - part-time, embedded, a scoped build? That works too: the shape
+        gets set on the call. The one thing I don't sell is a report that confirms everything is
+        fine.
+      </p>
+    </div>
+    <p class="mt-6 font-mono text-sm">
+      <a
+        href="/contact"
+        class="inline-block border border-accent text-accent hover:text-accent-deep hover:border-accent-deep px-4 py-2 no-underline hover:no-underline transition-colors"
+      >
+        Get in touch
+      </a>
+    </p>
+  </section>
+
+  <section id="work" class="max-w-2xl mx-auto px-6 py-8">
+    <h2 class="font-mono text-sm font-normal text-ink-muted mb-6">recent work</h2>
+    <article>
+      <p class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-3">
+        <span class="font-serif text-xl font-semibold leading-snug">
+          Data platform for a US marketplace startup
+        </span>
+        <span class="font-mono text-xs text-ink-muted tabular-nums">Mar to Jul 2026, solo</span>
+      </p>
+      <p class="leading-relaxed text-ink mb-5">
+        Took over a stalled data initiative and shipped it to production in six weeks, one
+        engineer across the whole stack.
+      </p>
+      <ul class="space-y-3">
+        <li class="pl-4 border-l-2 border-rule leading-relaxed text-ink">
+          Domain-keyed warehouse unifying nine data sources across email, calls, LinkedIn
+          outreach, and direct mail: <span class="font-medium">425k cross-source merges, zero
+          orphans</span>.
+        </li>
+        <li class="pl-4 border-l-2 border-rule leading-relaxed text-ink">
+          Go API and a self-serve ingestion UI the growth team uses without engineering in the
+          loop. Terraform and AWS underneath.
+        </li>
+        <li class="pl-4 border-l-2 border-rule leading-relaxed text-ink">
+          Built to run without its builder: scheduled, watermark-resuming pipelines operated
+          unattended and <span class="font-medium">kept running after a clean handover</span>.
+        </li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="roles" class="max-w-2xl mx-auto px-6 pt-8 pb-16">
+    <h2 class="font-mono text-sm font-normal text-ink-muted mb-6">roles</h2>
+    <ul class="space-y-6">
+      {
+        roles.map((r) => (
+          <li>
+            <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <p class="font-medium text-ink">
+                {r.role}, {r.org}
+              </p>
+              <p class="font-mono text-xs text-ink-muted tabular-nums">{r.period}</p>
+            </div>
+            <p class="text-sm text-ink-muted leading-relaxed mt-1">{r.line}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="mt-10 leading-relaxed text-sm text-ink-muted">
+      Also deployed on Solana mainnet:{' '}
+      <a href="https://solscan.io/account/SPL1T3rERcu6P6dyBiG7K8LUr21CssZqDAszwANzNMB" target="_blank" rel="noopener noreferrer">payment splitting</a>,{' '}
+      <a href="https://solscan.io/account/DEADaT1auZ8JjUMWUhhPWjQqFk9HSgHBkt5KaGMVnp1H" target="_blank" rel="noopener noreferrer">deadline validation</a>,{' '}
+      <a href="https://solscan.io/account/satiFVb9MDmfR4ZfRedyKPLGLCg3saQ7Wbxtx9AEeeF" target="_blank" rel="noopener noreferrer">agent identity (ERC-8004)</a>.
+    </p>
+  </section>
+</BaseLayout>

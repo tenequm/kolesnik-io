@@ -1,10 +1,7 @@
 ---
-// import { getCollection } from 'astro:content' // restore with the blog section
+import { getCollection } from 'astro:content'
 import BaseLayout from '../layouts/BaseLayout.astro'
 
-const calendly = 'https://calendly.com/tenequm/30min'
-
-/* Blog section hidden until there are published posts.
 const posts = (
   await getCollection('blog', ({ data }) => (import.meta.env.PROD ? !data.draft : true))
 )
@@ -16,307 +13,93 @@ const postDate = new Intl.DateTimeFormat('en-US', {
   month: 'short',
   day: 'numeric',
 })
-*/
 
-const services = [
-  {
-    name: 'Diagnose and fix',
-    duration: '2-4 weeks',
-    outcome:
-      'Starts with a 1-2 week diagnostic: written assessment, prioritized risk register, a 90-day plan. Then I implement the highest-value fixes from it - cloud and AI spend, reliability, deploys - as a scoped second phase. You can stop after the diagnostic; most of the value is in the fixes.',
-    fit: 'Good fit if the system was built fast, the person who knew it best is gone or overloaded, and you want it examined and repaired by the same senior hands.',
-  },
-  {
-    name: 'Stabilization retainer',
-    duration: 'monthly',
-    outcome:
-      'Ongoing senior ownership of the production side: infrastructure, deploys, cost, agent and prompt tuning, evals, on-call for AI-system issues. Bounded monthly hours.',
-    fit: 'Good fit if you shipped an AI system and need a senior engineer on call who actually understands the production path.',
-  },
-]
-
-const now = [
+const projects = [
   {
     name: 'pond',
-    tag: 'Open source',
-    text: 'Lossless archive and search for AI agent sessions: every message, tool call, and result from every agentic client, kept in storage you own, searchable over MCP, restorable into any client. Rust and Lance. Runs my own archive of 12,557 sessions and 2.25M messages.',
-    links: [
-      { href: 'https://github.com/tenequm/pond', label: 'github.com/tenequm/pond' },
-      { href: 'https://pond.locker', label: 'pond.locker' },
-    ],
+    href: 'https://pond.locker',
+    line: 'Lossless archive and search for AI agent sessions, kept in storage you own. Rust and Lance.',
   },
   {
     name: 'glim',
-    tag: 'Live product',
-    text: 'Live data for AI agents: web, Twitter, Reddit, GitHub, and more, served over MCP and paid per call with x402 micropayments. 43,000+ calls settled on-chain. Co-launched with the Solana Foundation.',
-    links: [{ href: 'https://glim.sh', label: 'glim.sh' }],
-  },
-]
-
-const solana = [
-  {
-    href: 'https://solscan.io/account/SPL1T3rERcu6P6dyBiG7K8LUr21CssZqDAszwANzNMB',
-    label: 'payment splitting',
+    href: 'https://glim.sh',
+    line: 'Live data for AI agents over MCP, paid per call with x402 micropayments. 43,000+ calls settled on-chain.',
   },
   {
-    href: 'https://solscan.io/account/DEADaT1auZ8JjUMWUhhPWjQqFk9HSgHBkt5KaGMVnp1H',
-    label: 'deadline validation',
+    name: 'cuttle',
+    href: 'https://github.com/glim-sh/cuttle',
+    line: 'A browser for AI agents that websites do not block: keeps logins, human takeover for captchas. Stealth Chromium behind one CDP endpoint.',
   },
   {
-    href: 'https://solscan.io/account/satiFVb9MDmfR4ZfRedyKPLGLCg3saQ7Wbxtx9AEeeF',
-    label: 'agent identity (ERC-8004)',
-  },
-]
-
-const roles = [
-  {
-    role: 'Solo infrastructure engineer',
-    org: 'Gasp / Mangata Finance',
-    period: 'Sep 2022 to 2026',
-    line: '$3M peak TVL, 22 months zero outages across 25 GKE nodes and 100+ microservices. Reference: Peter Kris, CEO, on request.',
-  },
-  {
-    role: 'DevOps to CTO',
-    org: 'Lavarage (Pine Protocol)',
-    period: 'Jun 2022 to Jun 2023',
-    line: 'Promoted to CTO after 6 months. Launched a DeFi protocol mainnet 30 days from inception; $2.8M peak TVL.',
-  },
-  {
-    role: 'Senior platform engineer',
-    org: 'NinjaHoldings',
-    period: 'Aug 2021 to Jun 2022',
-    line: 'US fintech. Migrated 30+ Python services EC2 to EKS; API p95 2.1s to 340ms.',
-  },
-  {
-    role: 'Sole DevOps to SRE team lead',
-    org: 'Takeoff Technologies',
-    period: 'Mar 2018 to Jul 2020',
-    line: 'Walmart and Costco warehouse automation across 8 isolated client environments; 99.95% uptime.',
+    name: 'blackbox',
+    href: 'https://github.com/tenequm/blackbox',
+    line: 'macOS menu bar app that records your calls, starting and stopping by itself. No bot, no account, files stay on your Mac.',
   },
 ]
 ---
 
 <BaseLayout title="Mykhaylo Kolesnik. Senior infrastructure engineering.">
-  <section class="max-w-3xl mx-auto px-6 pt-16 sm:pt-24 pb-16">
-    <h1 class="font-display text-4xl sm:text-5xl leading-[1.05] tracking-tight mb-10">
-      I fix the infrastructure nobody owns.
+  <section
+    class="max-w-2xl w-full mx-auto px-6 py-4 flex-1 flex flex-col sm:justify-center"
+  >
+    <h1 class="font-serif text-3xl sm:text-4xl leading-tight tracking-tight mb-5">
+      I build infrastructure for AI agents.
     </h1>
-    <p class="text-lg text-ink-muted leading-relaxed mb-6 max-w-prose">
-      Startups build fast, with developers and now with AI. The result works until it doesn't:
-      deploys people fear, one engineer holding everything in their head, an AI feature whose bill
-      and behavior nobody can explain.
+    <p class="text-ink-muted leading-relaxed mb-8">
+      Nine years of senior infrastructure engineering: SRE team lead at Takeoff Technologies
+      (Walmart and Costco warehouse automation), solo infrastructure engineer at Gasp, CTO at
+      Lavarage.
     </p>
-    <p class="leading-relaxed text-ink mb-8 max-w-prose">
-      Nine years of senior infrastructure engineering. I run my own production AI systems daily,
-      including <a href="https://glim.sh" target="_blank" rel="noopener noreferrer">glim</a>, a
-      paid product where the inference bill lands on my own P&amp;L. Every engagement starts with
-      what you have already shipped.
-    </p>
-    <div class="flex flex-wrap items-center gap-x-6 gap-y-3 mb-8">
-      <a
-        href={calendly}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-block bg-accent hover:bg-accent-deep text-bg px-5 py-3 font-medium tracking-wide transition-colors"
-      >
-        Book an intro call
-      </a>
-      <a href="mailto:misha@kolesnik.io">misha@kolesnik.io</a>
-      <span class="text-sm text-ink-muted">Available now for new engagements.</span>
-    </div>
-    <dl class="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-8 pt-8 border-t border-rule">
-      {
-        [
-          ['9 years', 'senior infrastructure engineering'],
-          ['99.95%', 'uptime across 8 client environments'],
-          ['22 months', 'zero outages, 100+ microservices'],
-          ['43,000+', 'paid calls on my own AI product'],
-        ].map(([num, label]) => (
-          <div>
-            <dt class="sr-only">{label}</dt>
-            <dd class="font-display text-2xl sm:text-3xl text-ink tabular-nums">{num}</dd>
-            <dd class="text-sm text-ink-muted leading-snug mt-1">{label}</dd>
-          </div>
-        ))
-      }
-    </dl>
-    <p class="mt-8 text-sm text-ink-muted leading-relaxed">
-      Previously: SRE team lead at Takeoff Technologies (Walmart and Costco warehouse automation),
-      solo infrastructure engineer at Gasp, CTO at Lavarage.
-    </p>
-  </section>
 
-  <section id="services" class="max-w-3xl mx-auto px-6 py-20 border-t border-rule">
-    <h2 class="font-display text-2xl sm:text-3xl mb-12">Services</h2>
-    <div class="space-y-12">
+    <div class="space-y-4 mb-7">
       {
-        services.map((s) => (
-          <article>
-            <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 mb-3">
-              <h3 class="font-display text-2xl">{s.name}</h3>
-              <p class="text-sm text-accent tracking-wide uppercase tabular-nums">{s.duration}</p>
-            </div>
-            <p class="leading-relaxed mb-3 text-ink">{s.outcome}</p>
-            <p class="leading-relaxed text-sm text-ink-muted">{s.fit}</p>
-          </article>
-        ))
-      }
-    </div>
-    <div class="mt-14 border border-rule p-6 sm:p-8">
-      <p class="text-ink leading-relaxed">
-        Every engagement is fixed price, scoped on a call: a defined end, named deliverables, and
-        you own everything I build - code, runbooks, and the knowledge to run it without me.
-      </p>
-      <p class="mt-4 text-ink-muted leading-relaxed">
-        Something else in mind - part-time, embedded, a scoped build? That works too: the shape
-        gets set on the call. The one thing I don't sell is a report that confirms everything is
-        fine.
-      </p>
-    </div>
-  </section>
-
-  <section id="now" class="max-w-3xl mx-auto px-6 py-20 border-t border-rule">
-    <h2 class="font-display text-2xl sm:text-3xl mb-12">Now</h2>
-    <div class="space-y-12">
-      {
-        now.map((n) => (
-          <article>
-            <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 mb-3">
-              <h3 class="font-display text-2xl">{n.name}</h3>
-              <p class="text-sm text-ink-muted uppercase tracking-wide">{n.tag}</p>
-            </div>
-            <p class="leading-relaxed text-ink mb-3 max-w-prose">{n.text}</p>
-            <p class="text-sm">
-              {n.links.map((l, i) => (
-                <>
-                  {i > 0 && <span class="text-ink-faint"> &middot; </span>}
-                  <a href={l.href} target="_blank" rel="noopener noreferrer">
-                    {l.label}
-                  </a>
-                </>
-              ))}
+        projects.map((p) => (
+          <a
+            href={p.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group block border-l-2 border-accent pl-5 -ml-[22px] text-ink hover:text-ink no-underline hover:no-underline hover:border-accent-deep"
+          >
+            <p class="font-mono text-base font-medium text-accent group-hover:text-accent-deep mb-0.5">
+              {p.name}
             </p>
-          </article>
+            <p class="leading-relaxed text-sm">{p.line}</p>
+          </a>
         ))
       }
     </div>
-  </section>
 
-  <section id="work" class="max-w-3xl mx-auto px-6 py-20 border-t border-rule">
-    <h2 class="font-display text-2xl sm:text-3xl mb-12">Recent work</h2>
-    <article>
-      <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 mb-3">
-        <h3 class="font-display text-2xl leading-snug">Data platform for a US marketplace startup</h3>
-        <p class="text-sm text-ink-muted tabular-nums shrink-0">Mar to Jul 2026, solo</p>
-      </div>
-      <p class="leading-relaxed text-ink max-w-prose mb-5">
-        Took over a stalled data initiative and shipped it to production in six weeks, one
-        engineer across the whole stack.
-      </p>
-      <ul class="space-y-3 max-w-prose">
-        <li class="pl-4 border-l-2 border-rule leading-relaxed text-ink">
-          Domain-keyed warehouse unifying nine data sources across email, calls, LinkedIn
-          outreach, and direct mail: <span class="font-medium">425k cross-source merges, zero
-          orphans</span>.
-        </li>
-        <li class="pl-4 border-l-2 border-rule leading-relaxed text-ink">
-          Go API and a self-serve ingestion UI the growth team uses without engineering in the
-          loop. Terraform and AWS underneath.
-        </li>
-        <li class="pl-4 border-l-2 border-rule leading-relaxed text-ink">
-          Built to run without its builder: scheduled, watermark-resuming pipelines operated
-          unattended and <span class="font-medium">kept running after a clean handover</span>.
-        </li>
-      </ul>
-    </article>
-    <p class="mt-10 leading-relaxed text-ink-muted max-w-prose">
-      Also deployed on Solana mainnet:{' '}
-      {
-        solana.map((l, i) => (
-          <>
-            {i > 0 && ', '}
-            <a href={l.href} target="_blank" rel="noopener noreferrer">
-              {l.label}
-            </a>
-          </>
-        ))
-      }.
-    </p>
-    <div class="mt-14 pt-8 border-t border-rule">
-      <h3 class="text-sm uppercase tracking-wide text-ink-muted mb-6">Roles</h3>
-      <ul class="space-y-6">
-        {
-          roles.map((r) => (
-            <li>
-              <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-                <p class="font-medium text-ink">
-                  {r.role}, {r.org}
-                </p>
-                <p class="text-sm text-ink-muted tabular-nums shrink-0">{r.period}</p>
-              </div>
-              <p class="text-sm text-ink-muted leading-relaxed mt-1">{r.line}</p>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </section>
-
-  {
-    /* Blog section hidden until there are published posts.
-    posts.length > 0 && (
-      <section id="blog" class="max-w-3xl mx-auto px-6 py-20 border-t border-rule">
-        <h2 class="font-display text-2xl sm:text-3xl mb-10">Blog</h2>
-        <ul>
-          {posts.map((post) => (
-            <li class="border-t border-rule first:border-t-0">
-              <a
-                href={`/blog/${post.id}`}
-                class="group flex flex-col sm:flex-row sm:items-baseline gap-x-6 gap-y-1 py-4 text-ink hover:text-ink"
-              >
-                <time
-                  datetime={post.data.pubDate.toISOString()}
-                  class="text-sm text-ink-faint tabular-nums shrink-0 sm:w-28"
+    {
+      posts.length > 0 && (
+        <div class="border border-rule bg-bg-raised px-5 py-3 mb-7">
+          <p class="font-mono text-xs text-ink-muted mb-2">writing</p>
+          <ul>
+            {posts.map((post) => (
+              <li>
+                <a
+                  href={`/blog/${post.id}`}
+                  class="group flex flex-col sm:flex-row sm:items-baseline gap-x-5 gap-y-0.5 py-1.5 text-ink hover:text-ink no-underline hover:no-underline"
                 >
-                  {postDate.format(post.data.pubDate)}
-                </time>
-                <span class="font-display text-lg group-hover:text-accent transition-colors">
-                  {post.data.title}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-        <p class="mt-6 text-sm">
-          <a href="/blog">All posts &rarr;</a>
-        </p>
-      </section>
-    )
-    */
-  }
+                  <time
+                    datetime={post.data.pubDate.toISOString()}
+                    class="font-mono text-xs text-ink-muted tabular-nums shrink-0 sm:w-24"
+                  >
+                    {postDate.format(post.data.pubDate)}
+                  </time>
+                  <span class="font-serif group-hover:text-accent transition-colors">
+                    {post.data.title}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
 
-  <section id="contact" class="max-w-3xl mx-auto px-6 py-14 border-t border-rule">
-    <div class="flex flex-wrap items-center gap-x-6 gap-y-3 mb-6">
-      <a
-        href={calendly}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-block bg-accent hover:bg-accent-deep text-bg px-5 py-3 font-medium tracking-wide transition-colors"
-      >
-        Book an intro call
-      </a>
-      <a href="mailto:misha@kolesnik.io" class="text-base">misha@kolesnik.io</a>
-      <a href="https://t.me/tenequm" target="_blank" rel="noopener noreferrer" class="text-base"
-        >Telegram</a
-      >
-      <a href="https://wa.me/tenequm" target="_blank" rel="noopener noreferrer" class="text-base"
-        >WhatsApp</a
-      >
-    </div>
-    <p class="text-sm text-ink-muted leading-relaxed max-w-prose">
-      Based in Cascais, Portugal, working primarily with North American teams. References from
-      current and prior engagements available on request. I sign client-provided DPAs and can
-      provide a baseline GDPR-aligned data-processing agreement.
+    <p class="font-mono text-sm text-ink-muted">
+      Consulting: I fix the infrastructure nobody owns.{' '}
+      <a href="/work">details &rarr;</a>
     </p>
   </section>
 </BaseLayout>

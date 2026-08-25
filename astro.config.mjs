@@ -13,6 +13,11 @@ export default defineConfig({
   },
   trailingSlash: 'never',
   integrations: [mdx(), sitemap()],
+  markdown: {
+    shikiConfig: {
+      theme: 'vitesse-dark',
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
   },
@@ -20,20 +25,20 @@ export default defineConfig({
     {
       provider: fontProviders.google(),
       name: 'Source Serif 4',
-      cssVariable: '--font-display',
+      cssVariable: '--font-serif',
       weights: [400, 600],
-      styles: ['normal'],
+      styles: ['normal', 'italic'],
       subsets: ['latin'],
       fallbacks: ['Georgia', 'serif'],
     },
     {
       provider: fontProviders.google(),
-      name: 'IBM Plex Sans',
-      cssVariable: '--font-body',
+      name: 'IBM Plex Mono',
+      cssVariable: '--font-mono',
       weights: [400, 500],
-      styles: ['normal', 'italic'],
+      styles: ['normal'],
       subsets: ['latin'],
-      fallbacks: ['system-ui', 'sans-serif'],
+      fallbacks: ['ui-monospace', 'monospace'],
     },
   ],
 })

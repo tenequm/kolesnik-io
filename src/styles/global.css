@@ -1,24 +1,26 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-bg: #f7f3ec;
-  --color-bg-raised: #fbf8f3;
-  --color-ink: #1c1815;
-  --color-ink-muted: #6b6358;
-  --color-ink-faint: #a39a8e;
-  --color-accent: #3d5a80;
-  --color-accent-deep: #2f4664;
-  --color-rule: #e6dfd3;
+  --color-bg: #131313;
+  --color-bg-raised: #1c1c1c;
+  --color-ink: #e6e3de;
+  --color-ink-muted: #a3a09a;
+  --color-ink-faint: #6b6864;
+  --color-accent: #8fb0d9;
+  --color-accent-deep: #b3cbe8;
+  --color-rule: #2a2a2a;
 
-  --font-display: var(--font-display), Georgia, serif;
-  --font-body: var(--font-body), system-ui, sans-serif;
+  --font-serif: var(--font-serif), Georgia, serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 @layer base {
   html {
+    color-scheme: dark;
+    scrollbar-gutter: stable;
     background: var(--color-bg);
     color: var(--color-ink);
-    font-family: var(--font-body);
+    font-family: var(--font-serif);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -30,7 +32,7 @@
   h1,
   h2,
   h3 {
-    font-family: var(--font-display);
+    font-family: var(--font-serif);
     font-weight: 600;
     letter-spacing: -0.01em;
     text-wrap: balance;
@@ -65,14 +67,14 @@
 }
 
 .prose-body h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-size: 1.5rem;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
 }
 
 .prose-body h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-size: 1.25rem;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
@@ -84,16 +86,28 @@
   margin-bottom: 1.25rem;
 }
 
+.prose-body ul {
+  list-style: disc;
+}
+
+.prose-body ol {
+  list-style: decimal;
+}
+
+.prose-body li::marker {
+  color: var(--color-ink-faint);
+}
+
 .prose-body code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.9em;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
   background: var(--color-bg-raised);
   padding: 0.1em 0.35em;
   border-radius: 3px;
 }
 
 .prose-body pre {
-  background: var(--color-bg-raised);
+  font-family: var(--font-mono);
   padding: 1rem;
   overflow-x: auto;
   border: 1px solid var(--color-rule);
@@ -135,4 +149,26 @@
   text-decoration: underline;
   text-underline-offset: 0.2em;
   text-decoration-thickness: 1px;
+}
+
+.prose-body table {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  display: block;
+  overflow-x: auto;
+}
+
+.prose-body th,
+.prose-body td {
+  border: 1px solid var(--color-rule);
+  padding: 0.4rem 0.75rem;
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+}
+
+.prose-body th {
+  color: var(--color-ink-muted);
+  font-weight: 500;
 }

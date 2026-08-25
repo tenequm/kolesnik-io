@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 
 // Read from the project root: this endpoint only runs at build time.
 const serif = readFileSync(join(process.cwd(), 'src/assets/fonts/source-serif-4-600.ttf'))
-const sans = readFileSync(join(process.cwd(), 'src/assets/fonts/ibm-plex-sans-400.ttf'))
+const mono = readFileSync(join(process.cwd(), 'src/assets/fonts/ibm-plex-mono-400.ttf'))
 
 const fmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
 
@@ -31,10 +31,10 @@ export async function GET({ props }: APIContext<Props>) {
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          backgroundColor: '#f7f3ec',
+          backgroundColor: '#131313',
         },
         children: [
-          { type: 'div', props: { style: { height: 14, backgroundColor: '#3d5a80' } } },
+          { type: 'div', props: { style: { height: 2, backgroundColor: '#2a2a2a' } } },
           {
             type: 'div',
             props: {
@@ -50,9 +50,9 @@ export async function GET({ props }: APIContext<Props>) {
                   type: 'div',
                   props: {
                     style: {
-                      fontFamily: 'IBM Plex Sans',
-                      fontSize: 26,
-                      color: '#3d5a80',
+                      fontFamily: 'IBM Plex Mono',
+                      fontSize: 24,
+                      color: '#8fb0d9',
                       marginBottom: 28,
                     },
                     children: fmt.format(post.data.pubDate),
@@ -65,7 +65,7 @@ export async function GET({ props }: APIContext<Props>) {
                       fontFamily: 'Source Serif 4',
                       fontSize: 58,
                       lineHeight: 1.15,
-                      color: '#1c1815',
+                      color: '#e6e3de',
                       letterSpacing: '-0.5px',
                       lineClamp: 3,
                       marginBottom: 30,
@@ -77,10 +77,10 @@ export async function GET({ props }: APIContext<Props>) {
                   type: 'div',
                   props: {
                     style: {
-                      fontFamily: 'IBM Plex Sans',
-                      fontSize: 28,
-                      lineHeight: 1.45,
-                      color: '#6b6358',
+                      fontFamily: 'IBM Plex Mono',
+                      fontSize: 24,
+                      lineHeight: 1.5,
+                      color: '#a3a09a',
                       lineClamp: 2,
                     },
                     children: post.data.description,
@@ -96,15 +96,15 @@ export async function GET({ props }: APIContext<Props>) {
                 display: 'flex',
                 justifyContent: 'space-between',
                 padding: '0 96px 56px',
-                fontFamily: 'IBM Plex Sans',
-                fontSize: 24,
+                fontFamily: 'IBM Plex Mono',
+                fontSize: 22,
               },
               children: [
                 {
                   type: 'div',
-                  props: { style: { color: '#1c1815' }, children: 'Mykhaylo Kolesnik' },
+                  props: { style: { color: '#e6e3de' }, children: 'Mykhaylo Kolesnik' },
                 },
-                { type: 'div', props: { style: { color: '#3d5a80' }, children: 'kolesnik.io' } },
+                { type: 'div', props: { style: { color: '#8fb0d9' }, children: 'kolesnik.io' } },
               ],
             },
           },
@@ -116,7 +116,7 @@ export async function GET({ props }: APIContext<Props>) {
       height: 630,
       fonts: [
         { name: 'Source Serif 4', data: serif, weight: 600, style: 'normal' },
-        { name: 'IBM Plex Sans', data: sans, weight: 400, style: 'normal' },
+        { name: 'IBM Plex Mono', data: mono, weight: 400, style: 'normal' },
       ],
     },
   )
