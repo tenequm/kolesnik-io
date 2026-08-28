@@ -25,8 +25,6 @@ const cleanPath = Astro.url.pathname.replace(/index\.html$/, '').replace(/\.html
 const canonical = new URL(cleanPath, Astro.site).toString()
 const ogImageUrl = new URL(ogImage, Astro.site).toString()
 const ogImageAlt = type === 'article' ? title : 'Mykhaylo Kolesnik. I fix the infrastructure nobody owns.'
-// Restore with the blog nav link:
-// const onBlog = cleanPath === '/blog' || cleanPath.startsWith('/blog/')
 const year = new Date().getFullYear()
 ---
 
@@ -83,7 +81,7 @@ const year = new Date().getFullYear()
       >
         <a href="/" class="font-mono text-sm text-ink hover:text-accent">mykhaylo kolesnik</a>
         <nav class="flex items-center gap-x-5 font-mono text-sm text-ink-muted">
-          {/* <a href="/blog">writing</a> hidden until the first published post */}
+          <a href="/blog">writing</a>
           <a href="/work">work</a>
           <a href="/contact">contact</a>
           <a
@@ -138,7 +136,6 @@ const year = new Date().getFullYear()
           Mykhaylo Kolesnik. Sole trader, Portugal. NIF PT321777301.
         </p>
         <nav class="flex flex-wrap gap-x-5 gap-y-2">
-          {/* <a href="/blog">Blog</a> hidden until there are published posts */}
           <a href="/privacy">Privacy</a>
           <span class="text-ink-faint">© {year}</span>
         </nav>
