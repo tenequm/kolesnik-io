@@ -40,3 +40,5 @@ My next reaction was a relief of being finally able to remove a big complexity c
 As a result I removed embeddings machinery from the default path in the app and left only BM25 FTS based search.
 
 For pond's case FTS was probably the best call from the beginning, I just didn't have enough data to get certain proof of that. And while there are cases where semantic search would cleanly outperform FTS, for such a broad scope as agentic sessions it appeared to be an unnecessary complexity with too expensive a cost for the value it was bringing.
+
+Full eval - method, judge rubric and per-arm data is in [in the pond repo](https://github.com/tenequm/pond/tree/main/docs/researches/2608-21-semantic-vs-fts-usage-eval).
