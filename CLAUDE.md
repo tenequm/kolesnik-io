@@ -46,8 +46,8 @@ Sections on the home page are inline in `index.astro` rather than extracted into
 
 ## Design tokens
 
-All colors and font variables live in `src/styles/global.css` under `@theme`. They become Tailwind utility classes automatically (e.g. `bg-bg`, `text-ink`, `text-accent`).
+Site colors live in `src/styles/global.css` as `--kolesnik-*` variables on `:root`. An `@theme inline` block maps them and the Astro font variables to existing Tailwind utilities (e.g. `bg-bg`, `text-ink`, `text-accent`). Use the namespaced variables directly in handwritten CSS. Keep the mappings inline so utilities do not depend on generic variables that browser extensions may overwrite.
 
 ## Fonts
 
-Fonts are loaded via the Astro Fonts API (configured in `astro.config.mjs`) and exposed as CSS variables `--font-display` (Source Serif 4) and `--font-body` (IBM Plex Sans). The `<Font />` component in `BaseLayout.astro` handles preload links.
+Fonts are loaded via the Astro Fonts API (configured in `astro.config.mjs`) and exposed as CSS variables `--kolesnik-font-serif` (Source Serif 4) and `--kolesnik-font-mono` (IBM Plex Mono). The `<Font />` component in `BaseLayout.astro` handles preload links.

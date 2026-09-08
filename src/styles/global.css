@@ -1,26 +1,39 @@
 @import 'tailwindcss';
 
-@theme {
-  --color-bg: #131313;
-  --color-bg-raised: #1c1c1c;
-  --color-ink: #e6e3de;
-  --color-ink-muted: #a3a09a;
-  --color-ink-faint: #6b6864;
-  --color-accent: #8fb0d9;
-  --color-accent-deep: #b3cbe8;
-  --color-rule: #2a2a2a;
+/* Keep site tokens distinct from globals injected by browser extensions. */
+:root {
+  --kolesnik-bg: #131313;
+  --kolesnik-bg-raised: #1c1c1c;
+  --kolesnik-ink: #e6e3de;
+  --kolesnik-ink-muted: #a3a09a;
+  --kolesnik-ink-faint: #6b6864;
+  --kolesnik-accent: #8fb0d9;
+  --kolesnik-accent-deep: #b3cbe8;
+  --kolesnik-rule: #2a2a2a;
+}
 
-  --font-serif: var(--font-serif), Georgia, serif;
-  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+/* Inline mappings make utilities use the site tokens directly. */
+@theme inline {
+  --color-bg: var(--kolesnik-bg);
+  --color-bg-raised: var(--kolesnik-bg-raised);
+  --color-ink: var(--kolesnik-ink);
+  --color-ink-muted: var(--kolesnik-ink-muted);
+  --color-ink-faint: var(--kolesnik-ink-faint);
+  --color-accent: var(--kolesnik-accent);
+  --color-accent-deep: var(--kolesnik-accent-deep);
+  --color-rule: var(--kolesnik-rule);
+
+  --font-serif: var(--kolesnik-font-serif);
+  --font-mono: var(--kolesnik-font-mono);
 }
 
 @layer base {
   html {
     color-scheme: dark;
     scrollbar-gutter: stable;
-    background: var(--color-bg);
-    color: var(--color-ink);
-    font-family: var(--font-serif);
+    background: var(--kolesnik-bg);
+    color: var(--kolesnik-ink);
+    font-family: var(--kolesnik-font-serif);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -32,32 +45,32 @@
   h1,
   h2,
   h3 {
-    font-family: var(--font-serif);
+    font-family: var(--kolesnik-font-serif);
     font-weight: 600;
     letter-spacing: -0.01em;
     text-wrap: balance;
   }
 
   a {
-    color: var(--color-accent);
+    color: var(--kolesnik-accent);
     text-decoration: none;
   }
 
   a:hover {
-    color: var(--color-accent-deep);
+    color: var(--kolesnik-accent-deep);
     text-decoration: underline;
     text-underline-offset: 0.2em;
     text-decoration-thickness: 1px;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--kolesnik-accent);
     outline-offset: 2px;
   }
 
   ::selection {
-    background: var(--color-accent);
-    color: var(--color-bg);
+    background: var(--kolesnik-accent);
+    color: var(--kolesnik-bg);
   }
 }
 
@@ -67,14 +80,14 @@
 }
 
 .prose-body h2 {
-  font-family: var(--font-serif);
+  font-family: var(--kolesnik-font-serif);
   font-size: 1.5rem;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
 }
 
 .prose-body h3 {
-  font-family: var(--font-serif);
+  font-family: var(--kolesnik-font-serif);
   font-size: 1.25rem;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
@@ -95,22 +108,22 @@
 }
 
 .prose-body li::marker {
-  color: var(--color-ink-faint);
+  color: var(--kolesnik-ink-faint);
 }
 
 .prose-body code {
-  font-family: var(--font-mono);
+  font-family: var(--kolesnik-font-mono);
   font-size: 0.85em;
-  background: var(--color-bg-raised);
+  background: var(--kolesnik-bg-raised);
   padding: 0.1em 0.35em;
   border-radius: 3px;
 }
 
 .prose-body pre {
-  font-family: var(--font-mono);
+  font-family: var(--kolesnik-font-mono);
   padding: 1rem;
   overflow-x: auto;
-  border: 1px solid var(--color-rule);
+  border: 1px solid var(--kolesnik-rule);
   margin-bottom: 1.5rem;
 }
 
@@ -127,21 +140,21 @@
 .prose-body img {
   max-width: 100%;
   height: auto;
-  border: 1px solid var(--color-rule);
+  border: 1px solid var(--kolesnik-rule);
   margin: 2rem 0;
 }
 
 .prose-body blockquote {
-  border-left: 2px solid var(--color-rule);
+  border-left: 2px solid var(--kolesnik-rule);
   padding-left: 1.25rem;
   margin: 1.5rem 0;
-  color: var(--color-ink-muted);
+  color: var(--kolesnik-ink-muted);
   font-style: italic;
 }
 
 .prose-body hr {
   border: none;
-  border-top: 1px solid var(--color-rule);
+  border-top: 1px solid var(--kolesnik-rule);
   margin: 2.5rem 0;
 }
 
@@ -152,7 +165,7 @@
 }
 
 .prose-body table {
-  font-family: var(--font-mono);
+  font-family: var(--kolesnik-font-mono);
   font-size: 0.85rem;
   border-collapse: collapse;
   margin-bottom: 1.5rem;
@@ -162,13 +175,13 @@
 
 .prose-body th,
 .prose-body td {
-  border: 1px solid var(--color-rule);
+  border: 1px solid var(--kolesnik-rule);
   padding: 0.4rem 0.75rem;
   text-align: left;
   font-variant-numeric: tabular-nums;
 }
 
 .prose-body th {
-  color: var(--color-ink-muted);
+  color: var(--kolesnik-ink-muted);
   font-weight: 500;
 }

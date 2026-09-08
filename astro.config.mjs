@@ -25,7 +25,7 @@ export default defineConfig({
     {
       provider: fontProviders.google(),
       name: 'Source Serif 4',
-      cssVariable: '--font-serif',
+      cssVariable: '--kolesnik-font-serif',
       weights: [400, 600],
       styles: ['normal', 'italic'],
       subsets: ['latin'],
@@ -34,7 +34,7 @@ export default defineConfig({
     {
       provider: fontProviders.google(),
       name: 'IBM Plex Mono',
-      cssVariable: '--font-mono',
+      cssVariable: '--kolesnik-font-mono',
       weights: [400, 500],
       styles: ['normal'],
       subsets: ['latin'],
