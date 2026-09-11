@@ -19,7 +19,7 @@ In this period I first started benchmarking both semantic and FTS search queries
 
 The queries I was making were always giving the results I needed if tweaked here or there a little. But they didn't answer whether the samples I prepared would actually in practice reflect how an agent would use that search for typical use cases.
 
-The other thing that bothered me was a feeling that an agent couldn't find anything at all when searching, while I knew data was there. That's when I decided to spend some time and evaluate the performance of each search type having real requests that were made and real data they were made on. Outcomes were judged by an LLM tracing what agent did immediately after the search, whether it used results or did more searches after it. Worth to note that 99% of calls were done within Claude Code, so the result may differ for other harneses.
+The other thing that bothered me was a feeling that an agent couldn't find anything at all when searching, while I knew data was there. That's when I decided to spend some time and evaluate the performance of each search type having real requests that were made and real data they were made on. Outcomes were judged by an LLM tracing what agent did immediately after the search, whether it used results or did more searches after it. Worth to note that 99% of calls were done within Claude Code, so the result may differ for other harnesses.
 
 | Evaluation | BM25 FTS | Vector |
 |---|---:|---:|
@@ -37,7 +37,7 @@ And the only thing I was certain I didn't want to do was trying to solve that wi
 
 My next reaction was a relief of being finally able to remove a big complexity chunk from the app, while being sure that it not only makes the whole design much lighter and app simpler - but also makes the search results better on average.
 
-As a result I removed embeddings machinery from the default path in the app and left only BM25 FTS based search. I tried Hybrid/RRF fusion while experimenting - but results where turning out to be way too unreliable and it was hard to configure it into 'one search fit all' mode.
+As a result I removed embeddings machinery from the default path in the app and left only BM25 FTS based search. I tried Hybrid/RRF fusion while experimenting - but results were turning out to be way too unreliable and it was hard to configure it into 'one search fit all' mode.
 
 For pond's case FTS was probably the best call from the beginning, I just didn't have enough data to get certain proof of that. And while there are cases where semantic search would cleanly outperform FTS, for such a broad scope as agentic sessions it appeared to be an unnecessary complexity with too expensive a cost for the value it was bringing.
 
