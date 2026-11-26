@@ -113,17 +113,20 @@ const roles = [
       </p>
       <ul class="space-y-3">
         <li class="pl-4 border-l-2 border-rule leading-relaxed text-ink">
-          Domain-keyed warehouse unifying nine data sources across email, calls, LinkedIn
-          outreach, and direct mail: <span class="font-medium">425k cross-source merges, zero
-          orphans</span>.
+          Domain-keyed warehouse unifying email, call, LinkedIn, direct-mail and field-event
+          data. The day-one seed loaded <span class="font-medium">2.9M contacts with 425k
+          cross-source merges and zero orphans</span>.
         </li>
         <li class="pl-4 border-l-2 border-rule leading-relaxed text-ink">
-          Go API and a self-serve ingestion UI the growth team uses without engineering in the
-          loop. Terraform and AWS underneath.
+          Python pipelines on Prefect and SQLMesh, a self-serve ingestion UI the growth team uses
+          without engineering in the loop, and role-gated endpoints in the existing Go API.
+          Terraform and AWS underneath.
         </li>
         <li class="pl-4 border-l-2 border-rule leading-relaxed text-ink">
-          Built to run without its builder: scheduled, watermark-resuming pipelines operated
-          unattended and <span class="font-medium">kept running after a clean handover</span>.
+          Built to run without its builder: scheduled syncs resume where the last successful run
+          left off, and I handed over with <span class="font-medium">every production credential
+          in the client's own secret store</span> and all eight production deployments
+          documented.
         </li>
       </ul>
     </article>
